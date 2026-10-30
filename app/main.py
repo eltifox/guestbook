@@ -50,3 +50,8 @@ def add_message(m: MessageIn):
             (m.author, m.text),
         ).fetchone()
     return {"id": row[0], "author": m.author, "text": m.text}
+
+
+@app.get("/")
+def root():
+    return {"app": "guestbook", "version": settings.app_version}
